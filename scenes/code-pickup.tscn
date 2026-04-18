@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhg3484vpbb1i"]
 
 [ext_resource type="Script" uid="uid://v6k3outsiq5p" path="res://scenes/code_pickup.gd" id="1_fm0ft"]
-[ext_resource type="Texture2D" uid="uid://dwaub2fng8qyq" path="res://assets/sprites/code-pickup-placeholder.png" id="1_r8as0"]
+[ext_resource type="Texture2D" uid="uid://4i1x5r8j1irh" path="res://assets/sprites/code-1.png" id="2_fm0ft"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r8as0"]
 radius = 9.055386
@@ -11,10 +11,11 @@ collision_mask = 2
 script = ExtResource("1_fm0ft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.067857146, 0.067857146)
-texture = ExtResource("1_r8as0")
+scale = Vector2(0.29502052, 0.28912696)
+texture = ExtResource("2_fm0ft")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.4940834, 2.4504795)
 shape = SubResource("CircleShape2D_r8as0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

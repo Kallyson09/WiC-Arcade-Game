@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpaom378ot7s5"]
+[gd_scene load_steps=7 format=3 uid="uid://dpaom378ot7s5"]
 
 [ext_resource type="PackedScene" uid="uid://bncntd6ogx7nu" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bhg3484vpbb1i" path="res://scenes/code-pickup.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dmvjdlphe2kri" path="res://assets/sprites/level_1_bg.png" id="3_lnu2h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 normal = Vector2(180, -1)
@@ -18,35 +20,42 @@ position = Vector2(4, 23)
 position = Vector2(-4, -23)
 zoom = Vector2(2.5, 2.5)
 limit_left = -105
-limit_top = -1310
-limit_right = 1800
-limit_bottom = 118
+limit_top = -804
+limit_right = 1099
+limit_bottom = 100
 position_smoothing_enabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1, 50)
+[node name="FloorBound" type="StaticBody2D" parent="."]
+position = Vector2(1, 58.115)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorBound"]
 shape = SubResource("WorldBoundaryShape2D_uwrxv")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="CeilingBound" type="StaticBody2D" parent="."]
+position = Vector2(1, -807)
+rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CeilingBound"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="LeftBound" type="StaticBody2D" parent="."]
 position = Vector2(-100, 50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound"]
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(1800, 50)
+[node name="RightBound" type="StaticBody2D" parent="."]
+position = Vector2(1100, 50)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBound"]
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
-[node name="Area2D" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(77, 28)
+[node name="CodePickup" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(164, 38)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -5
-position = Vector2(849, -597)
-scale = Vector2(0.7, 0.7)
+position = Vector2(498.29553, -353)
+scale = Vector2(0.44326174, 0.44326174)
 texture = ExtResource("3_lnu2h")
