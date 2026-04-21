@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://d8cn3l0ge61c"]
 
-[ext_resource type="Script" uid="uid://do6rdllj2hrsn" path="res://Main_menu/main_menu.gd" id="1_3u35k"]
-[ext_resource type="FontFile" uid="uid://bn4xgppm25byv" path="res://Main_menu/Neucha-Regular.ttf" id="2_t5aul"]
+[ext_resource type="Script" uid="uid://do6rdllj2hrsn" path="res://scenes/Main_menu/main_menu.gd" id="1_3u35k"]
+[ext_resource type="FontFile" uid="uid://bn4xgppm25byv" path="res://scenes/Main_menu/Neucha-Regular.ttf" id="2_t5aul"]
 
 [sub_resource type="Image" id="Image_06t4h"]
 data = {
@@ -865,9 +865,10 @@ corner_detail = 5
 script = ExtResource("1_3u35k")
 
 [node name="TitleLabel" type="Label" parent="."]
-offset_top = 143.0
+offset_top = 170.0
 offset_right = 1153.0
-offset_bottom = 281.0
+offset_bottom = 308.0
+scale = Vector2(0.5519557, 0.5519557)
 theme_override_fonts/font = SubResource("FontFile_jix8l")
 theme_override_font_sizes/font_size = 600
 text = "Widget and Whimsy"
