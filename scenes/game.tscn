@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://dpaom378ot7s5"]
+[gd_scene load_steps=17 format=4 uid="uid://dpaom378ot7s5"]
 
 [ext_resource type="PackedScene" uid="uid://bncntd6ogx7nu" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bhg3484vpbb1i" path="res://scenes/code-pickup.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dmvjdlphe2kri" path="res://assets/sprites/level_1_bg.png" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://b2vbntkpg2eos" path="res://assets/sprites/hearts.png" id="3_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cgs2wkhmts0ek" path="res://assets/sprites/platform-tile16.png" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bk28cksfv6n6j" path="res://scenes/enemy1.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://dyqbm17ymino7" path="res://scenes/enemy2.tscn" id="6_p57ef"]
@@ -15,6 +16,35 @@ texture = ExtResource("4_lbhrr")
 [sub_resource type="TileSet" id="TileSet_p57ef"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iywne")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gee14"]
+atlas = ExtResource("3_u5sy4")
+region = Rect2(0, 0, 1943, 606)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
+atlas = ExtResource("3_u5sy4")
+region = Rect2(0, 606, 1943, 606)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
+atlas = ExtResource("3_u5sy4")
+region = Rect2(0, 1212, 1943, 606)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvpfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gee14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tnpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtaks")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 
@@ -40,6 +70,11 @@ limit_top = -804
 limit_right = 1099
 limit_bottom = 100
 position_smoothing_enabled = true
+
+[node name="Hearts" type="AnimatedSprite2D" parent="Player/Camera2D"]
+position = Vector2(-83.42573, -85)
+scale = Vector2(0.019801982, 0.019801984)
+sprite_frames = SubResource("SpriteFrames_kvpfn")
 
 [node name="FloorBound" type="StaticBody2D" parent="."]
 position = Vector2(1, 58.115)
