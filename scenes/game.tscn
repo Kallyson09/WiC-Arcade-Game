@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://dpaom378ot7s5"]
+[gd_scene load_steps=12 format=4 uid="uid://dpaom378ot7s5"]
 
 [ext_resource type="PackedScene" uid="uid://bncntd6ogx7nu" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bhg3484vpbb1i" path="res://scenes/code-pickup.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dmvjdlphe2kri" path="res://assets/sprites/level_1_bg.png" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://cgs2wkhmts0ek" path="res://assets/sprites/platform-tile16.png" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bk28cksfv6n6j" path="res://scenes/enemy1.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dyqbm17ymino7" path="res://scenes/enemy2.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("4_lbhrr")
@@ -32,7 +34,7 @@ position = Vector2(4, 23)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-4, -23)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(5, 5)
 limit_left = -105
 limit_top = -804
 limit_right = 1099
@@ -73,3 +75,9 @@ z_index = -5
 position = Vector2(498.29553, -353)
 scale = Vector2(0.44326174, 0.44326174)
 texture = ExtResource("3_lnu2h")
+
+[node name="Enemy" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(269, 40)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(364, -25)

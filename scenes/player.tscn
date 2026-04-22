@@ -1,12 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://bncntd6ogx7nu"]
+[gd_scene load_steps=22 format=3 uid="uid://bncntd6ogx7nu"]
 
-[ext_resource type="Texture2D" uid="uid://3ytxjabv4sme" path="res://assets/sprites/Widget_Mouse.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bjbc3f7kxdp80" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bijws0dpjqdxk" path="res://assets/sprites/widget-idle-spritesheet.png" id="3_qhqgy"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
-radius = 11.0
-height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("3_qhqgy")
@@ -140,21 +135,13 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
+radius = 11.0
+height = 24.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_g2els")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(3.0000002, -18.000002)
-scale = Vector2(0.018981934, 0.018981934)
-texture = ExtResource("1_3vyb7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -12)
-shape = SubResource("CapsuleShape2D_3vyb7")
-disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.62, -18)

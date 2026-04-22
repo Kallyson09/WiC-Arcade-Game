@@ -13,12 +13,14 @@ config_version=5
 config/name="WICProjectsGame"
 run/main_scene="uid://d8cn3l0ge61c"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://3ytxjabv4sme"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
+window/size/viewport_width=1280
+window/size/viewport_height=960
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [rendering]
 
