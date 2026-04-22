@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://d8cn3l0ge61c"]
+[gd_scene load_steps=11 format=4 uid="uid://d8cn3l0ge61c"]
 
 [ext_resource type="Script" uid="uid://do6rdllj2hrsn" path="res://scenes/Main_menu/main_menu.gd" id="1_3u35k"]
 [ext_resource type="FontFile" uid="uid://bn4xgppm25byv" path="res://scenes/Main_menu/Neucha-Regular.ttf" id="2_t5aul"]
+[ext_resource type="Texture2D" uid="uid://dmvjdlphe2kri" path="res://assets/sprites/level_1_bg.png" id="3_muvfy"]
+[ext_resource type="Texture2D" uid="uid://3ytxjabv4sme" path="res://assets/sprites/Widget_Mouse.png" id="5_xwi0d"]
 
 [sub_resource type="Image" id="Image_06t4h"]
 data = {
@@ -885,5 +887,21 @@ theme_override_fonts/font = ExtResource("2_t5aul")
 theme_override_font_sizes/font_size = 74
 theme_override_styles/normal = SubResource("StyleBoxFlat_7vrkn")
 text = "Start!"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(0, -29)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_muvfy")
+centered = false
+
+[node name="Widget" type="Sprite2D" parent="."]
+position = Vector2(528.00006, 515)
+scale = Vector2(0.19375613, 0.19375613)
+texture = ExtResource("5_xwi0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(135, 120)
+scale = Vector2(170.5, 170.5)
 
 [connection signal="pressed" from="TitleLabel/StartButton" to="." method="_on_start_button_pressed"]

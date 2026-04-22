@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpaom378ot7s5"]
+[gd_scene load_steps=10 format=4 uid="uid://dpaom378ot7s5"]
 
 [ext_resource type="PackedScene" uid="uid://bncntd6ogx7nu" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bhg3484vpbb1i" path="res://scenes/code-pickup.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dmvjdlphe2kri" path="res://assets/sprites/level_1_bg.png" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://cgs2wkhmts0ek" path="res://assets/sprites/platform-tile16.png" id="4_lbhrr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
+texture = ExtResource("4_lbhrr")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_p57ef"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_iywne")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 
@@ -12,6 +22,10 @@
 normal = Vector2(180, -1)
 
 [node name="Game" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAdAAEAAAAAAAAAAAAeAAEAAAAAAAAAAAAfAAEAAAAAAAAAAAAgAAEAAAAAAAAAAAAhAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(4, 23)
