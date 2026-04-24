@@ -140,6 +140,7 @@ radius = 11.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.88477856, 0.88477856)
 collision_layer = 2
 script = ExtResource("1_g2els")
 
