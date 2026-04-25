@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dpaom378ot7s5"]
+[gd_scene load_steps=18 format=4 uid="uid://dpaom378ot7s5"]
 
 [ext_resource type="PackedScene" uid="uid://bncntd6ogx7nu" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bhg3484vpbb1i" path="res://scenes/code-pickup.tscn" id="2_yqjtg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vbntkpg2eos" path="res://assets/sprites/hearts.png" id="3_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cgs2wkhmts0ek" path="res://assets/sprites/platform-tile16.png" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bk28cksfv6n6j" path="res://scenes/enemy1.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://dvo66eyhbc4mb" path="res://scripts/health.gd" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://dyqbm17ymino7" path="res://scenes/enemy2.tscn" id="6_p57ef"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
@@ -101,13 +102,13 @@ limit_right = 2800
 limit_bottom = 100
 position_smoothing_enabled = true
 
+[node name="Hearts" type="AnimatedSprite2D" parent="Player/Camera2D"]
+position = Vector2(3.9999912, -19.948606)
+scale = Vector2(0.022380719, 0.022380723)
+sprite_frames = SubResource("SpriteFrames_kvpfn")
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="Player/Camera2D"]
 follow_viewport_enabled = true
-
-[node name="Hearts" type="AnimatedSprite2D" parent="Player/Camera2D/CanvasLayer2"]
-position = Vector2(-83.42573, -85)
-scale = Vector2(0.019801982, 0.019801984)
-sprite_frames = SubResource("SpriteFrames_kvpfn")
 
 [node name="BGCanvasLayer" type="CanvasLayer" parent="."]
 layer = -5
@@ -135,18 +136,23 @@ flip_h = true
 
 [node name="Enemy" parent="Enemy Objects" instance=ExtResource("5_iywne")]
 position = Vector2(343, -399)
+script = ExtResource("6_gee14")
 
 [node name="Enemy3" parent="Enemy Objects" instance=ExtResource("5_iywne")]
 position = Vector2(806, 49)
+script = ExtResource("6_gee14")
 
 [node name="Enemy2" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 position = Vector2(1026, -274)
+script = ExtResource("6_gee14")
 
 [node name="Enemy5" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 position = Vector2(1685, -390)
+script = ExtResource("6_gee14")
 
 [node name="Enemy4" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 position = Vector2(298, -113)
+script = ExtResource("6_gee14")
 
 [node name="Code Objects" type="Node" parent="."]
 
@@ -161,3 +167,9 @@ position = Vector2(1610, -172)
 
 [node name="CodePickup4" parent="Code Objects" instance=ExtResource("2_yqjtg")]
 position = Vector2(2605, -399)
+
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy3" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy2" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy5" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy4" method="_on_enemy_body_entered"]
