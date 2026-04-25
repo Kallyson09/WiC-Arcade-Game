@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vbntkpg2eos" path="res://assets/sprites/hearts.png" id="3_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cgs2wkhmts0ek" path="res://assets/sprites/platform-tile16.png" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bk28cksfv6n6j" path="res://scenes/enemy1.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://dvo66eyhbc4mb" path="res://scripts/health.gd" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://dyqbm17ymino7" path="res://scenes/enemy2.tscn" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://c1y4cps8esjbt" path="res://assets/sprites/window-goal.png" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://cke21grw3hdg6" path="res://assets/sprites/window-art.png" id="9_0tnpc"]
@@ -107,13 +108,13 @@ limit_right = 2800
 limit_bottom = 100
 position_smoothing_enabled = true
 
+[node name="Hearts" type="AnimatedSprite2D" parent="Player/Camera2D"]
+position = Vector2(3.9999912, -19.948606)
+scale = Vector2(0.022380719, 0.022380723)
+sprite_frames = SubResource("SpriteFrames_kvpfn")
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="Player/Camera2D"]
 follow_viewport_enabled = true
-
-[node name="Hearts" type="AnimatedSprite2D" parent="Player/Camera2D/CanvasLayer2"]
-position = Vector2(-83.42573, -85)
-scale = Vector2(0.019801982, 0.019801984)
-sprite_frames = SubResource("SpriteFrames_kvpfn")
 
 [node name="BGCanvasLayer" type="CanvasLayer" parent="."]
 layer = -5
@@ -142,46 +143,57 @@ flip_h = true
 [node name="Enemy" parent="Enemy Objects" instance=ExtResource("5_iywne")]
 z_index = 1
 position = Vector2(338, -394)
+script = ExtResource("6_gee14")
 
 [node name="Enemy3" parent="Enemy Objects" instance=ExtResource("5_iywne")]
 z_index = 1
 position = Vector2(542, 53)
+script = ExtResource("6_gee14")
 
 [node name="Enemy6" parent="Enemy Objects" instance=ExtResource("5_iywne")]
 z_index = 1
 position = Vector2(1527, 53)
+script = ExtResource("6_gee14")
 
 [node name="Enemy9" parent="Enemy Objects" instance=ExtResource("5_iywne")]
 z_index = 1
 position = Vector2(1616, -381)
+script = ExtResource("6_gee14")
 
 [node name="Enemy7" parent="Enemy Objects" instance=ExtResource("5_iywne")]
 z_index = 1
 position = Vector2(2082, 54)
+script = ExtResource("6_gee14")
 
 [node name="Enemy2" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 z_index = 1
 position = Vector2(907, -493)
+script = ExtResource("6_gee14")
 
 [node name="Enemy5" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 z_index = 1
 position = Vector2(1645, -156)
+script = ExtResource("6_gee14")
 
 [node name="Enemy4" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 z_index = 1
 position = Vector2(382, -110)
+script = ExtResource("6_gee14")
 
 [node name="Enemy10" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 z_index = 1
 position = Vector2(2399, 50)
+script = ExtResource("6_gee14")
 
 [node name="Enemy11" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 z_index = 1
 position = Vector2(1265, 3)
+script = ExtResource("6_gee14")
 
 [node name="Enemy8" parent="Enemy Objects" instance=ExtResource("6_p57ef")]
 z_index = 1
 position = Vector2(1044, 50)
+script = ExtResource("6_gee14")
 
 [node name="Code Objects" type="Node" parent="."]
 
@@ -230,3 +242,9 @@ z_index = 1
 position = Vector2(513, -1.0000002)
 scale = Vector2(0.17533074, 0.17533074)
 texture = ExtResource("11_kvpfn")
+
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy3" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy2" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy5" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy4" method="_on_enemy_body_entered"]
