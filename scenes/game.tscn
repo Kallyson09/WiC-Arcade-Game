@@ -244,7 +244,13 @@ scale = Vector2(0.17533074, 0.17533074)
 texture = ExtResource("11_kvpfn")
 
 [connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy" method="_on_body_entered"]
-[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy3" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy2" method="_on_enemy_body_entered"]
-[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy5" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy3" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy4" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy5" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy6" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy7" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy8" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy9" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy10" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="Enemy Objects/Enemy" to="Enemy Objects/Enemy11" method="_on_enemy_body_entered"]
